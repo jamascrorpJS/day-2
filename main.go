@@ -1,13 +1,14 @@
 package main
 
-import "fmt"
+import "tests/exercise"
 
 func main() {
-	var somoni int
-	var rubl int = 10
-	var dollar int = 1
 
-	fmt.Scanf("%v", &somoni)
-	println("Курс сомони в рублях ", somoni*rubl)
-	println("Курс сомони в долларах ", somoni*dollar)
+	w, h, a, err := exercise.GetCharacter()
+	if err != nil {
+		return
+	}
+	dayLimit := exercise.CountRequiredCalories(w, h, a)
+	expenditure := exercise.Expenditure(10, w, 5000)
+	exercise.CheckBmr(dayLimit, expenditure)
 }
